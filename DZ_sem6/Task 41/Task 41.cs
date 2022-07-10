@@ -28,8 +28,6 @@ for (int i = 0; i < numbersArray.Length; i++)  // Перевод строков�
     if (numbersArray[i] > 0) count++;
 }
 
-Console.WriteLine(str);
-PrintStringArray(numbersStringArray);
 Console.WriteLine($"Чисел больше 0: {count}");
 
 void PrintIntArray (int[] array)
