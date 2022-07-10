@@ -22,7 +22,7 @@ for (int i = 0; i < str.Length; i++)  // Создание строкового �
     }
 }
 
-for (int i = 0; i < numbersArray.Length; i++)
+for (int i = 0; i < numbersArray.Length; i++)  // Перевод строкового массива в числовой и подсчет положительных чисел
 {
     numbersArray[i] = Convert.ToInt32(numbersStringArray[i]);
     if (numbersArray[i] > 0) count++;
