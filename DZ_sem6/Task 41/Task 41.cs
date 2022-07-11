@@ -1,49 +1,30 @@
-﻿Console.Write("Введите числа через запятую: ");
-string str = Console.ReadLine();
-string[] numbersStringArray = new string [str.Length];
-string numbers = "-0123456789";
-int[] numbersArray = new int [numbersStringArray.Length];
-int numberSeparator = 0;
-int count = 0;
+﻿Console.Write("Введите числа через запятую, например '1,2,-3,4,-5': ");
+string user_string = Console.ReadLine();
+int size = 1;
+for (int i = 0; i < user_string.Length; i++) if (user_string[i] == ',') size++;
+string[] numbers_string_array = new string [size];
+string examples_numbers = "-0123456789";
+int number_separator = 0;
+int[] numbers_int_array = new int [size];
+int count_pozitive = 0;
 
-for (int i = 0; i < str.Length; i++)  // Создание строкового массива, в каждой ячейке которого число
+for (int i = 0; i < user_string.Length; i++)    //Перевод чисел в строковый массив, в каждой ячейке которого одно число
 {
-    for (int j = 0; j < numbers.Length; j++)
+    for (int j = 0; j < examples_numbers.Length; j++)
     {
-        if (str[i] == numbers[j])
+        if (user_string[i] == examples_numbers[j]) numbers_string_array[number_separator] += examples_numbers[j];
+        else if (user_string[i] == ',')
         {
-        numbersStringArray[numberSeparator] += numbers[j];
-        }
-        else if (str[i] == ',' || str[i] == ' ')
-        {
-            numberSeparator++;
+            number_separator++;
             break;
         }
     }
 }
 
-for (int i = 0; i < numbersArray.Length; i++)  // Перевод строкового массива в числовой и подсчет положительных чисел
+for (int i = 0; i < size; i++)   //Перевод чисел из строкового массива в числовой и подсчёт положительных
 {
-    numbersArray[i] = Convert.ToInt32(numbersStringArray[i]);
-    if (numbersArray[i] > 0) count++;
+    numbers_int_array[i] = Convert.ToInt32(numbers_string_array[i]);
+    if (numbers_int_array[i] > 0) count_pozitive++;
 }
 
-Console.WriteLine($"Чисел больше 0: {count}");
-
-void PrintIntArray (int[] array)
-{
-    for (int i = 0; i < array.Length; i++)
-    {
-        Console.Write($"{array[i]} ");
-    }
-    Console.WriteLine();
-}
-
-void PrintStringArray (string[] array)
-{
-    for (int i = 0; i < array.Length; i++)
-    {
-        Console.Write($"{array[i]} ");
-    }
-    Console.WriteLine();
-}
+Console.Write($"Количество положительных чисел: {count_pozitive}");
