@@ -12,13 +12,13 @@ int NaturalNumbers(int m, int n)
         Console.Write(NaturalNumbers(m, n - 1) + ", ");
         return n;
     }
-    else if (m > n)
+    if (m > n)
     {
         if (m == n) return n;
         Console.Write(NaturalNumbers(m, n + 1) + ", ");
         return n;
     }
-    else return m;
+    return m;
 }
 
 int InputInt(string output)
